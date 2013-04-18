@@ -13,7 +13,7 @@ module.exports = function (grunt) {
     var options = this.options({
       src: null,
       interface: '{}',
-      dest: '',
+      dest: 'output.js',
       header: '',
       footer: ''
     });
