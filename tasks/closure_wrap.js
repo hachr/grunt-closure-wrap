@@ -9,7 +9,7 @@
 'use strict';
 
 module.exports = function (grunt) {
-  grunt.registerMultiTask('closure_wrap', 'Your task description goes here.', function () {
+  grunt.registerMultiTask('closure_wrap', 'Wrap current src content into a closure with provided public interface.', function () {
     var options = this.options({
       src: null,
       interface: '{}',
@@ -30,6 +30,11 @@ module.exports = function (grunt) {
 
     if (!options.interface || options.interface === '') {
       grunt.fail.warn(new Error('interface must be specified'));
+    }
+
+    if (src.indexOf(header) === 0 && src.substr(src.length - footer.length) === footer) {
+      grunt.log.writeln("Skipped task since it's processed already");
+      return;
     }
 
     var file = grunt.file.exists(options.interface);
