@@ -1,6 +1,7 @@
 # grunt-closure-wrap
 
 > Provide a simple way to wrap existing javascript file into a simple closure with provided interface.
+> Note, this approach is mainly for quickly port an existing large project over inside closure. It is not recommend to use this style as the main development since the interface file is not together with the source file.
 
 ## Getting Started
 This plugin requires Grunt `~0.4.1`
