@@ -28,7 +28,11 @@ In your project's Gruntfile, add a section named `closure_wrap` to the data obje
 grunt.initConfig({
   closure_wrap: {
     options: {
-      // Task-specific options go here.
+      src: 'js-file-i-want-to-wrap-inside-a-closure',
+      interface: '{ publicMethod1: function(){}, publicMethod2: function(){} }', //this can be a filename that contains the object as well.
+      dest: 'my-final-file.js',
+      header: 'var MyLibrary = function(){', //start the closure, define the closure-scoped variables here if needed.
+      footer: '}();' //close the closure
     },
     your_target: {
       // Target-specific file lists and/or options go here.
